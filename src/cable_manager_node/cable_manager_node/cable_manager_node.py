@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int16MultiArray
+from std_msgs.msg import Int8MultiArray
 import RPi.GPIO as GPIO
 
 class CableManagerNode(Node):
@@ -10,8 +10,8 @@ class CableManagerNode(Node):
         super().__init__('cable_manager_node')
 
         # duty比を受信
-        self.subscription = self.create_subscription(Int16MultiArray, 'duty', self.duty_callback, 10)
-        self.duty = Int16MultiArray()
+        self.subscription = self.create_subscription(Int8MultiArray, 'duty', self.duty_callback, 10)
+        self.duty = Int8MultiArray()
 
         # 50msごとにモータの状態を更新
         self.timer = self.create_timer(0.050, self.timer_callback)
