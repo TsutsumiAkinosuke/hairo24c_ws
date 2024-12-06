@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "cable_manager_node = cable_manager_node.cable_manager_node:main",
         ],
     },
 )
